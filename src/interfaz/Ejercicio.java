@@ -5,6 +5,8 @@
  */
 package interfaz;
 
+import javax.swing.JOptionPane;
+
 
 
 /**
@@ -120,10 +122,31 @@ public class Ejercicio extends javax.swing.JFrame {
 
     private void cmdCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCalcularActionPerformed
 
+        if(txtDinero.getText().trim().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Digite la cantidad de dinero dispuesto en el hospital","ERROR",JOptionPane.ERROR_MESSAGE);
+            txtDinero.requestFocusInWindow();
+        }else{
+            
+           double dinero=Double.parseDouble(txtDinero.getText());
+            
+           double gine=(dinero*40)/100;
+           double trauma=(dinero*30)/100;
+           double pedi=(dinero*30)/100;
+           
+           lblGine.setText(""+gine);
+           lblPedia.setText(""+pedi);
+           lblTrauma.setText(""+trauma);
+          }
     }//GEN-LAST:event_cmdCalcularActionPerformed
 
     private void cmdBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBorrarActionPerformed
-
+        
+        txtDinero.setText("");
+        lblGine.setText("");
+        lblPedia.setText("");
+        lblTrauma.setText("");
+        
+        txtDinero.requestFocusInWindow();
     }//GEN-LAST:event_cmdBorrarActionPerformed
 
     /**
